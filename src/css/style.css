@@ -4,12 +4,10 @@ body {
 }
 
 h1 {
-  font-size: 10rem;
+  font-size: 1rem;
 }
 
 p {
-  font-size: 11rem;
-  color: blue;
+  font-size: 1rem;
+  color: red;
 }
-
-
