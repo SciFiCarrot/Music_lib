@@ -4,6 +4,20 @@ html {
 }
 h1 {
     font-size: 1rem;
+    background-color: lightgray;
     text-align: center;
     padding: 10px;
+}
+.LIB_container {
+    display: grid;
+    gap: 15px;
+    padding: 20px;
+    background-color: black;
+}
+.LIB_container div {
+    background-color: blue;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
 }
