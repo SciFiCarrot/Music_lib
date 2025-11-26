@@ -16,6 +16,7 @@ h1 {
 }
 .LIB_container div {
     background-color: blue;
+    cursor: pointer;
     margin: 15px;
     height: 100px;
     padding: 20px;
