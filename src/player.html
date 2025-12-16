@@ -8,14 +8,19 @@
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
   <!-- Load the custom CSS style file -->
-  <link rel="stylesheet" type="text/css" href="css/player_style.css">
+  <link rel="stylesheet" type="text/css" href="css/player.css">
 </head>
 <body>
+  <nav>
+    <div class="nav-home">
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
   <div class="player">
 
     <!-- Define the section for displaying details -->
     <div class="details">
-      <div class="now-playing">PLAYING x OF y</div>
+      <div class="now-playing">Currently playing x by y</div>
       <div class="track-art"></div>
       <div class="track-name">Track Name</div>
       <div class="track-artist">Track Artist</div>
@@ -52,6 +57,6 @@
   </div>
 
   <!-- Load the main script for the player -->
-  <script src="main.js"></script>
+  <script src="player.js"></script>
 </body>
 </html>
