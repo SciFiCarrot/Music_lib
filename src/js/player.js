@@ -17,10 +17,20 @@ const onPlayClick = () => {
 
 
 
-const playbutton = document.getElementById("playpause")
+  const button = document.getElementById('playpause_track');
+  const iframe = document.getElementById('spotify_player');
 
-playbutton.addEventListener('click', () => {
-    alert('clicked')
+  button.addEventListener('click', () => {
+    const link = localStorage.getItem('LinkPath');
+    if (link != null) {
+      const embedLink = link.replace(
+      'https://open.spotify.com/',
+      'https://open.spotify.com/embed/'
+    );
+    iframe.src = embedLink;
+    iframe.style.display ='block';
+
+        alert("link found")
   }
-);
+  });
 
