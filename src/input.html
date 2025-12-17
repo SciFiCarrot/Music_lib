@@ -4,22 +4,6 @@
             Library input
         </title>
         <link rel="stylesheet" href="css/input.css"> 
-        <script src="js/input.js">
-            submitAlbum(); {
-                if (Input == null) {
-                    alert('Input element not found');
-                    return;
-                }
-                else (Input != null);{
-                    const AlbumName = document.getElementById('album_name').value;
-                    const AlbumArtist = document.getElementById('album_artist').value;
-                    const AlbumImage = document.getElementById('album_image').files[0];
-                    const AlbumAudio = document.getElementById('album_audio').files[0];
-                    console.log('Album Submitted:', { AlbumName, AlbumArtist, AlbumImage, AlbumAudio });
-                    i++
-                }
-            }
-        </script>
     </head>
     <body>
         <nav>
@@ -31,33 +15,64 @@
             Submit your album
         </h1>
         <div class="input">
-            <div class="album_name">
-                <input type="text" id="album_name" placeholder="Album Name"/>
-                
-
-
-
+            <div>
+                <input type="text" id="name" placeholder="Song Name"/>
             </div>
 
-            <div class="album_artist">
-                <input type="text" id="album_artist" placeholder="Artist Name"/>
+            <div>
+                <input type="text" id="artist" placeholder="Artist Name"/>
             </div>
-
             
-            <label for ="album_image">Album Image</label>
-            <div class="album_image">
-                <input type="file" id="album_image" accept="image/*" placeholder="Album image"/>
+            <div>
+                <input type="text" id="link" placeholder="Song link"/>
+            </div>
+            
+            <label for ="image">Album Image</label>
+            <div>
+                <input type="file" id="image" accept="image/*" placeholder="Song image"/>
             </div>
 
-            <label for ="album_audio">Album Audio</label>
-
-            <div class="album_audio">
-                <input type="file" id="album_audio" accept="audio/*" placeholder="Album audio"/>
-            </div>
         </div>
-
-        <div class="submit_button">
-            <button onclick="submitAlbum()">Submit</button>
+        <div >
+            <button id="submit_button">Submit</button>
         </div>
+        <div>
+            <button id="reset_button">Reset all songs</button>
+        </div>
+        <script>
+            songcount = 0;
+            document.addEventListener('DOMContentLoaded', () => {
+                const ImageInput = document.getElementById('image');
+                const LinkInput = document.getElementById('link');
+                const ArtistInput = document.getElementById('artist');
+                const NameInput = document.getElementById('name');
+                const SubmitButton = document.getElementById('submit_button');
+                SubmitButton.addEventListener('click', () => {
+                    if (ImageInput.value === '' || LinkInput.value === '' || ArtistInput.value === '' || NameInput.value === '') {
+                        alert('Please fill in all fields before submitting.');
+                    } else {
+                        localStorage.setItem('imagePath' + songcount, ImageInput.value);
+                        localStorage.setItem('linkPath' + songcount, LinkInput.value);
+                        localStorage.setItem('artistName' + songcount, ArtistInput.value);
+                        localStorage.setItem('songName' + songcount, NameInput.value);
+                        ImageInput.value = '';
+                        LinkInput.value = '';
+                        ArtistInput.value = '';
+                        NameInput.value = '';
+                        alert('Song submitted!');
+                        alert('linkPath' + songcount + ': ' + localStorage.getItem('linkPath' + songcount));
+                        songcount = songcount + 1;
+                        alert(songcount + ' songs submitted so far!');
+
+                    }
+                });
+                const ResetButton = document.getElementById('reset_button');
+                ResetButton.addEventListener('click', () => {
+                    localStorage.clear();
+                    songcount = 0;
+                    alert('All songs have been reset.');
+                });
+            });
+        </script>
     </body>
 </html>
