@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Simple Music Player</title>
-  <link rel="stylesheet" 
-        href=
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="css/player.css">
-</head>
-<body>
-  <nav>
-    <div class="nav-home">
-      <a href="index.html">Home</a>
-    </div>
-  </nav>
-    <div id="playpause_track" class="player">
-      <i class="fa fa-play-circle fa-5x"></i>
-    </div>
-    <iframe
-      id="spotify_player"
-      class="player2"  
-      src=""
-      width="1280"
-      height="720"
-      frameborder="0"
-      allowtransparency="true"
-      allow="encrypted-media"
-      style="display:none;">
-    </iframe>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const button = document.getElementById('playpause_track');
-        const iframe = document.getElementById('spotify_player');
-
-        button.addEventListener('click', () => {
-          const link = localStorage.getItem('LinkPath');
-          const embedLink = link.replace(
-            'https://open.spotify.com/',
-            'https://open.spotify.com/embed/'
-          );
-          iframe.src = embedLink;
-          iframe.style.display ='block';
+  <head>
+    <title>Simple Music Player</title>
+    <link rel="stylesheet" 
+          href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="css/player.css">
+    <link href="input.html">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-home">
+        <a href="index.html">Home</a>
+      </div>
+    </nav>
+      <div id="playpause_track">
+        <i class="fa fa-play-circle fa-5x"></i>
+      </div>
+      <iframe
+        id="spotify_player"
+        class="player2"  
+        src=""
+        width="1280"
+        height="720"
+        frameborder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+        style="display:none;">
+      </iframe>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const button = document.getElementById('playpause_track');
+          const iframe = document.getElementById('spotify_player');
+          button.addEventListener('click', () => {
+            alert(localStorage.getItem('linkPath' + songcount));
+            const link = localStorage.getItem('linkPath'+songcount);
+            const embedLink = link.replace(
+              'https://open.spotify.com/',
+              'https://open.spotify.com/embed/'
+            );
+            iframe.src = embedLink;
+            iframe.style.display ='block';
+          });
         });
-      });
-  </script>
-</body>
+      </script>
+  </body>
 </html>

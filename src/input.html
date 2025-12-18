@@ -51,6 +51,7 @@
                     if (ImageInput.value === '' || LinkInput.value === '' || ArtistInput.value === '' || NameInput.value === '') {
                         alert('Please fill in all fields before submitting.');
                     } else {
+                        songcount = songcount + 1;
                         localStorage.setItem('imagePath' + songcount, ImageInput.value);
                         localStorage.setItem('linkPath' + songcount, LinkInput.value);
                         localStorage.setItem('artistName' + songcount, ArtistInput.value);
@@ -61,7 +62,6 @@
                         NameInput.value = '';
                         alert('Song submitted!');
                         alert('linkPath' + songcount + ': ' + localStorage.getItem('linkPath' + songcount));
-                        songcount = songcount + 1;
                         alert(songcount + ' songs submitted so far!');
 
                     }
