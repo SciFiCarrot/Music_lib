@@ -6,7 +6,7 @@
     <h1 id="timer">
     </h1>
     <h1 id="instructions">
-        Click on the spinning record
+        Click on the record, you can only return to the homepage once you get max level
     </h1>
     <body>
         <style>
@@ -97,12 +97,16 @@
                             level = "MAX"
                             setInterval(function(){
                                 sec = sec - 1;
-                        }, 2500);
+                        }, 2000);
+                        }
+                        if (count == 150){
+                            window.open(index.html)
                         }
                         sec = sec + 2;
                         document.getElementById('score').textContent = 'score = ' + count;
                         document.getElementById('timer').textContent = 'timer = ' + sec;
                         document.getElementById('level').textContent = 'level:'+' '+level;
+                        document.getElementById('instructions').textContent = 'Good luck!!!'
                     }
                 });
             });
