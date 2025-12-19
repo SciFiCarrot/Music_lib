@@ -5,56 +5,105 @@
         <link rel="stylesheet" href="css/library.css">
     </head>
     <body>
-        <div id="nav-home">
-        <a href="index.html">Home</a>
-        </div>
-        <script src="js/library.js"></script>
+      <link href="input.html">
         <h1>Music library</h1>
+        <nav>
+          <div class="nav-sort-re">
+            <a href="LIB_S_ALF.html">Sort Alphabetically</a>
+          </div>
+        
         <div class = "LIB_container">
-            <a onclick="href=player.html">   
-            <div id="Album1" img src=imagePath1></div>
+            <a href="player.html" id="Song1"> 
+              <div></div>
             </a>
-            <a onclick="href=linkPath2">
-            <div id="Album2" img src=imageLink2></div>
+            <a href="player.html" id="Song2"> 
+              <div></div>
             </a>
-            <a onclick="href=Album3_Link">
-            <div id="Album3" img src=Album3_Billede></div> 
+            <a href="player.html" id="Song3"> 
+              <div></div>
             </a>
-            <a onclick="href=Album4_Link">
-            <div id="Album4" img src=Album4_Billede></div>
+            <a href="player.html" id="Song4"> 
+              <div></div>
             </a>
-            <a onclick="href=Album5_Link">
-            <div id="Album5" img src=Album5_Billede></div>
+            <a href="player.html" id="Song5"> 
+              <div></div>
             </a>
-            <a onclick="href=Album6_Link">
-            <div id="Album6" img src=Album6_Billede></div>
+            <a href="player.html" id="Song6"> 
+              <div></div>
             </a>
-            <a onclick="href=Album7_Link">
-            <div id="Album7" img src=Album7_Billede></div> 
+            <a href="player.html" id="Song7"> 
+              <div></div>
             </a>
-            <a onclick="href=Album8_Link">
-            <div id="Album8" img src=Album8_Billede></div>
+            <a href="player.html" id="Song8"> 
+              <div></div>
             </a>
-            <a onclick="href=Album9_Link">
-            <div id="Album9" img src=Album9_Billede></div>
+            <a href="player.html" id="Song9"> 
+              <div></div>
             </a>
-            <a onclick="href=Album10_Link">
-            <div id="Album10" img src=Album10_Billede></div>
+            <a href="player.html" id="Song10"> 
+              <div></div>
             </a>
-            <a onclick="href=Album11_Link">
-            <div id="Album11" img src=Album11_Billede></div>
+            <a href="player.html" id="Song11"> 
+              <div></div>
             </a>
-            <a onclick="href=Album12_Link">
-            <div id="Album12" img src=Album12_Billede></div>
+            <a href="player.html" id="Song12"> 
+              <div></div>
             </a>
         </div>
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-            const iframe = document.getElementById('spotify_player');
-
-            button.addEventListener('click', () => {
+            const button1 = document.getElementById('Song1');
+            button1.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+1);
+            });
+            const button2 = document.getElementById('Song2');
+            button2.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+2);
+            });
+            const button3 = document.getElementById('Song3');
+            button3.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+3);
+            });
+            const button4 = document.getElementById('Song4');
+            button4.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+4);
+            });
+            const button5 = document.getElementById('Song5');
+            button5.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+5);
+            });
+            const button6 = document.getElementById('Song6');
+            button6.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+6);
+            });
+            const button7 = document.getElementById('Song7');
+            button7.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+7);
+            });
+            const button8 = document.getElementById('Song8');
+            button8.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+8);
+            });
+            const button9 = document.getElementById('Song9');
+            button9.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+9);
+            });
+            const button10 = document.getElementById('Song10');
+            button10.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+10);
+            });
+            const button11 = document.getElementById('Song11');
+            button11.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+11);
+            });
+            const button12 = document.getElementById('Song12');
+            button12.addEventListener('click', () => {
+              const link = localStorage.getItem('linkPath'+12);
             });
           });
-  </script>
+        </script>
+        <div class="nav-home">
+          <a href="index.html">Home</a>
+        </div>
     </body>
 </html>

@@ -26,11 +26,6 @@
             <div>
                 <input type="text" id="link" placeholder="Song link"/>
             </div>
-            
-            <label for ="image">Album Image</label>
-            <div>
-                <input type="file" id="image" accept="image/*" placeholder="Song image"/>
-            </div>
 
         </div>
         <div >
@@ -42,21 +37,18 @@
         <script>
             songcount = 0;
             document.addEventListener('DOMContentLoaded', () => {
-                const ImageInput = document.getElementById('image');
                 const LinkInput = document.getElementById('link');
                 const ArtistInput = document.getElementById('artist');
                 const NameInput = document.getElementById('name');
                 const SubmitButton = document.getElementById('submit_button');
                 SubmitButton.addEventListener('click', () => {
-                    if (ImageInput.value === '' || LinkInput.value === '' || ArtistInput.value === '' || NameInput.value === '') {
+                    if (LinkInput.value === '' || ArtistInput.value === '' || NameInput.value === '') {
                         alert('Please fill in all fields before submitting.');
                     } else {
                         songcount = songcount + 1;
-                        localStorage.setItem('imagePath' + songcount, ImageInput.value);
                         localStorage.setItem('linkPath' + songcount, LinkInput.value);
                         localStorage.setItem('artistName' + songcount, ArtistInput.value);
                         localStorage.setItem('songName' + songcount, NameInput.value);
-                        ImageInput.value = '';
                         LinkInput.value = '';
                         ArtistInput.value = '';
                         NameInput.value = '';
