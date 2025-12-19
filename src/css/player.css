@@ -16,11 +16,16 @@
   border-radius: 12px;
   top: 2%+55px;
 }
-#spinning-thingy {
-  position: absolute;
-  top: 2%;
-  left: 2%;
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
+
+.spinning-thingy {
+  animation: spin 2s linear infinite;
+}
+
 #spinning-thingy:hover {
   transition: 0.9s;
   transform: rotateZ(360deg);
