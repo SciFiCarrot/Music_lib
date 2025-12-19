@@ -10,3 +10,8 @@
   flex-direction: column;
   justify-content: center;
 }
+#spinning-thingy img {
+  position: absolute;
+  animation: spin 4s linear infinite;
+  z-index: -1;
+}
