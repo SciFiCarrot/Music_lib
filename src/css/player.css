@@ -20,6 +20,7 @@ body {
   top: 2%;
   right: 2%;
 }
+
 #spinning-thingy:hover {
   transition: 0.9s;
   transform: rotateZ(360deg);
