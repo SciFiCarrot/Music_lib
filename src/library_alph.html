@@ -25,7 +25,7 @@
             const albumCount = Number(localStorage.getItem('albumCount'));
             let sort = [];
             for (let i = 0; i < albumCount; i++) {
-            sort[i] = localStorage.getItem('albumName' + (i + 1))+ (i + 1)
+            sort[i] = (localStorage.getItem('albumName' + (i + 1)) ?? '').toLowerCase() + '§' + (i + 1);
             }
 
 
@@ -58,13 +58,13 @@
 
 
             for (let i = 0; i < albumCount; i++) {
-                const idx = sort[i].replace(/\D+/g, '');
-                albums[i] = localStorage.getItem('linkPath' + sort[i].replace(/\D+/g, ''));
+                const idx = sort[i].split('§')[1];
+                albums[i] = localStorage.getItem('linkPath' + sort[i].split('§')[1]);
                 const div = document.createElement("div");
                 div.id = "album" + (i + 1); 
                 div.classList.add("album");
                 div.dataset.idx = idx;
-                div.textContent = localStorage.getItem('albumName' + sort[i].replace(/\D+/g, '')) + " by " + localStorage.getItem('artistName' + sort[i].replace(/\D+/g, ''));
+                div.textContent = localStorage.getItem('albumName' + sort[i].split('§')[1]) + " by " + localStorage.getItem('artistName' + sort[i].split('§')[1]);
                 container.appendChild(div);
             }
 
