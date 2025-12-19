@@ -12,7 +12,7 @@
         <h1>Music library</h1>
         <nav>
           <div class="nav-sort-re">
-            <a href="LIB_S_ALF.html">Sort Alphabetically</a>
+            <a href="library_alph.html">Sort Alphabetically</a>
           </div>
         </nav>
 
@@ -23,28 +23,28 @@
         </div>
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-            let songs = [];
+            let albums = [];
             const container = document.getElementById("LIB_container");
-            const songCount = Number(localStorage.getItem('songCount'));
-            for (let i = 0; i < songCount; i++) {
-                songs[i] = localStorage.getItem('linkPath' + (i + 1));
+            const albumCount = Number(localStorage.getItem('albumCount'));
+            for (let i = 0; i < albumCount; i++) {
+                albums[i] = localStorage.getItem('linkPath' + (i + 1));
                 const div = document.createElement("div");
-                div.id = "song" + (i + 1); 
-                div.classList.add("song");
-                div.textContent = localStorage.getItem('songName' + (i + 1)) + " by " + localStorage.getItem('artistName' + (i + 1));
+                div.id = "album" + (i + 1); 
+                div.classList.add("album");
+                div.textContent = localStorage.getItem('albumName' + (i + 1)) + " by " + localStorage.getItem('artistName' + (i + 1));
                 container.appendChild(div);
             }
             document.addEventListener('click',()=>{
-              if(event.target && event.target.classList.contains('song')){
-                const number = event.target.id.replace('song','');
-                const songLink = localStorage.getItem('linkPath' + number);
-                localStorage.setItem('currentSong', songLink);
+              if(event.target && event.target.classList.contains('album')){
+                const number = event.target.id.replace('album','');
+                const albumLink = localStorage.getItem('linkPath' + number);
+                localStorage.setItem('currentalbum', albumLink);
 
-                const currentSong = localStorage.getItem('currentSong')
+                const currentalbum = localStorage.getItem('currentalbum')
                 
-                const songId = currentSong.replace(
+                const albumId = currentalbum.replace(
                   'https://open.spotify.com/album/','').split('?')[0];
-                const playerLink = "player.html?id=" + songId
+                const playerLink = "player.html?id=" + albumId
                 window.open(playerLink);
               }
               //https://open.spotify.com/album/2164xFQmRLyfnHxqKoFPj5?si=HyvxX_iVS6eB3BNgdkhPxA

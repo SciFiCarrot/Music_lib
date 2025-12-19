@@ -25,25 +25,30 @@
             <div>
                 <input type="text" id="link" placeholder="Album link"/>
             </div>
-
         </div>
+
         <div >
             <button id="submit_button">Submit</button>
         </div>
+
         <div>
             <button id="reset_button">Reset all albums</button>
         </div>
+
         <div id="arrow1">
             <img src="css/red_arrow.png" alt="Red Arrow pointing to submit button" width="200" height="100">
         </div>
+
         <div id="arrow2">
             <img src="css/red_arrow.png" alt="Red Arrow pointing to submit button" width="200" height="100">
         </div>
+
         <div id="arrow3">
             <img src="css/red_arrow.png" alt="Red Arrow pointing to submit button" width="200" height="100">
         </div>
+
         <script>
-            songcount = Number(localStorage.getItem('songCount')) || 0;
+            albumcount = Number(localStorage.getItem('albumCount')) || 0;
             document.addEventListener('DOMContentLoaded', () => {
                 const LinkInput = document.getElementById('link');
                 const ArtistInput = document.getElementById('artist');
@@ -53,27 +58,26 @@
                     if (LinkInput.value === '' || ArtistInput.value === '' || NameInput.value === '') {
                         alert('Please fill in all fields before submitting.');
                     } else {
-                        songcount = songcount + 1;
-                        localStorage.setItem('linkPath' + songcount, LinkInput.value);
-                        localStorage.setItem('artistName' + songcount, ArtistInput.value);
-                        localStorage.setItem('albumName' + songcount, NameInput.value);
+                        albumcount = albumcount + 1;
+                        localStorage.setItem('linkPath' + albumcount, LinkInput.value);
+                        localStorage.setItem('artistName' + albumcount, ArtistInput.value);
+                        localStorage.setItem('albumName' + albumcount, NameInput.value);
                         LinkInput.value = '';
                         ArtistInput.value = '';
                         NameInput.value = '';
-                        alert('Song submitted!');
-                        alert('linkPath' + songcount + ': ' + localStorage.getItem('linkPath' + songcount));
-                        alert(songcount + ' songs submitted so far!');
-                        localStorage.setItem('songCount', songcount);
+                        alert('album submitted!');
+                      //alert('linkPath' + albumcount + ': ' + localStorage.getItem('linkPath' + albumcount));
+                      //alert(albumcount + ' albums submitted so far!');
+                        localStorage.setItem('albumCount', albumcount);
                     }
                 });
                 const ResetButton = document.getElementById('reset_button');
                 ResetButton.addEventListener('click', () => {
                     localStorage.clear();
-                    songcount = 0;
-                    alert('All songs have been reset.');
+                    albumcount = 0;
+                    alert('All albums have been reset.');
                 });
             });
-
         </script>
     </body>
 </html>
