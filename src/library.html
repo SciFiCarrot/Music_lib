@@ -3,6 +3,7 @@
         <meta charset="UTF-8" />
         <title>Library Page</title>
         <link rel="stylesheet" href="css/library.css">
+        <script src="js/input.js"></script>
     </head>
     <body>
       <link href="input.html">
@@ -12,94 +13,31 @@
             <a href="LIB_S_ALF.html">Sort Alphabetically</a>
           </div>
         
-        <div class = "LIB_container">
-            <a href="player.html" id="Song1"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song2"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song3"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song4"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song5"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song6"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song7"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song8"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song9"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song10"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song11"> 
-              <div></div>
-            </a>
-            <a href="player.html" id="Song12"> 
-              <div></div>
-            </a>
+        <div id="LIB_container">
         </div>
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-            const button1 = document.getElementById('Song1');
-            button1.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+1);
-            });
-            const button2 = document.getElementById('Song2');
-            button2.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+2);
-            });
-            const button3 = document.getElementById('Song3');
-            button3.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+3);
-            });
-            const button4 = document.getElementById('Song4');
-            button4.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+4);
-            });
-            const button5 = document.getElementById('Song5');
-            button5.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+5);
-            });
-            const button6 = document.getElementById('Song6');
-            button6.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+6);
-            });
-            const button7 = document.getElementById('Song7');
-            button7.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+7);
-            });
-            const button8 = document.getElementById('Song8');
-            button8.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+8);
-            });
-            const button9 = document.getElementById('Song9');
-            button9.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+9);
-            });
-            const button10 = document.getElementById('Song10');
-            button10.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+10);
-            });
-            const button11 = document.getElementById('Song11');
-            button11.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+11);
-            });
-            const button12 = document.getElementById('Song12');
-            button12.addEventListener('click', () => {
-              const link = localStorage.getItem('linkPath'+12);
-            });
+            let songs = [];
+            const container = document.getElementById("LIB_container");
+            const songCount = Number(localStorage.getItem('songCount'));
+            for (let i = 0; i < songCount; i++) {
+                songs[i] = localStorage.getItem('linkPath' + (i + 1));
+                const div = document.createElement("div");
+                div.id = "song" + (i + 1); 
+                div.classList.add("song");
+                div.textContent = localStorage.getItem('songName' + (i + 1)) + " by " + localStorage.getItem('artistName' + (i + 1));
+                container.appendChild(div);
+            }
+            document.addEventListener('click',()=>{
+              if(event.target && event.target.classList.contains('song')){
+                const number = event.target.id.replace('song','');
+                const songLink = localStorage.getItem('linkPath' + number);
+                localStorage.setItem('currentSong', songLink);
+                alert(localStorage.getItem('currentSong'));
+                window.open("player.html");
+              
+              }
+            })
           });
         </script>
         <div class="nav-home">

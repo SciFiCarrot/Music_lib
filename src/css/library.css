@@ -9,12 +9,12 @@ h1 {
     text-align: center;
     padding: 15px;
 }
-.LIB_container {
+#LIB_container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     background-image: url('WoodBGLIB.jpg');
 }
-.LIB_container div {
+#LIB_container div {
     background-image: url(VinylBG2.jpg);
     border: 2px solid black;
     cursor: pointer;
