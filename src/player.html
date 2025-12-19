@@ -11,14 +11,12 @@
   <link href="input.html">
 </head>
 <body>
-  <div id="spinning-thingy">
-    <img src = "VinylBG2_noBG.png">
-  </div>
   <nav>
-    <div class="nav-home">
-      <a href="index.html">Home</a>
+    <div id="spinning-thingy">
+      <img src = "VinylBG2_noBG.png" width="50" height="50">
     </div>
   </nav>
+
 
 
 
@@ -74,6 +72,11 @@
           );
           iframe.src = embedLink;
           iframe.style.display ='block';
+        });
+        addEventListener('click', () => {
+          if (event.target.id == 'spinning-thingy'){
+            window.open('index.html');
+          }
         });
       });
   </script>
