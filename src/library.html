@@ -13,18 +13,8 @@
             <a href="LIB_S_ALF.html">Sort Alphabetically</a>
           </div>
         </nav>
-        <!--
-        Source - https://stackoverflow.com/a
-        Posted by Gass, modified by community. See post 'Timeline' for change history
-        Retrieved 2025-12-19, License - CC BY-SA 4.0
-        -->
-        
-        
         <div id="LIB_container">
         </div>
-
-
-
         <script>
           document.addEventListener('DOMContentLoaded', () => {
             let songs = [];
@@ -44,6 +34,7 @@
                 const songLink = localStorage.getItem('linkPath' + number);
                 localStorage.setItem('currentSong', songLink);
                 alert(localStorage.getItem('currentSong'));
+                
                 window.open("player.html");
               
               }
