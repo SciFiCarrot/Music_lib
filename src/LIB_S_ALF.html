@@ -3,63 +3,66 @@
         <meta charset="UTF-8" />
         <title>Library Page</title>
         <link rel="stylesheet" href="css/library.css">
+        <script src="js/input.js"></script>
     </head>
     <body>
-        <div class="nav-home">
-        <a href="index.html">Home</a>
-        </div>
-        <script src="js/library.js"></script>
+      <link href="input.html">
         <h1>Music library</h1>
         <nav>
-          <div class="nav-sort-alf">
+          <div class="nav-sort-re">
             <a href="library.html">Sort by recent</a>
           </div>
-        
-        <div class = "LIB_container">
-            <a onclick="href=player.html">   
-            <div id="Album1" img src=imagePath1></div>
-            </a>
-            <a onclick="href=linkPath2">
-            <div id="Album2" img src=imageLink2></div>
-            </a>
-            <a onclick="href=Album3_Link">
-            <div id="Album3" img src=Album3_Billede></div> 
-            </a>
-            <a onclick="href=Album4_Link">
-            <div id="Album4" img src=Album4_Billede></div>
-            </a>
-            <a onclick="href=Album5_Link">
-            <div id="Album5" img src=Album5_Billede></div>
-            </a>
-            <a onclick="href=Album6_Link">
-            <div id="Album6" img src=Album6_Billede></div>
-            </a>
-            <a onclick="href=Album7_Link">
-            <div id="Album7" img src=Album7_Billede></div> 
-            </a>
-            <a onclick="href=Album8_Link">
-            <div id="Album8" img src=Album8_Billede></div>
-            </a>
-            <a onclick="href=Album9_Link">
-            <div id="Album9" img src=Album9_Billede></div>
-            </a>
-            <a onclick="href=Album10_Link">
-            <div id="Album10" img src=Album10_Billede></div>
-            </a>
-            <a onclick="href=Album11_Link">
-            <div id="Album11" img src=Album11_Billede></div>
-            </a>
-            <a onclick="href=Album12_Link">
-            <div id="Album12" img src=Album12_Billede></div>
-            </a>
+        </nav>
+        <div id="LIB_container">
         </div>
+        <button id="test_button">Test</button>
         <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const iframe = document.getElementById('spotify_player');
+          document.addEventListener('DOMContentLoaded', ()  => {
+            let songs = [];
+            const container = document.getElementById("LIB_container");
+            const songCount = Number(localStorage.getItem('songCount'));
+            let sort = [];
+            for (let i = 0; i < songCount; i++) {
+            sort[i] = localStorage.getItem('songName' + (i + 1))+ (i + 1)
+            }
+            sort.sort();
+            for (let i = 0; i < songCount; i++) {
+                songs[i] = localStorage.getItem('linkPath' + sort[i].replace(/\D+/g, ''));
+                const div = document.createElement("div");
+                div.id = "song" + (i + 1); 
+                div.classList.add("song");
+                div.textContent = localStorage.getItem('songName' + sort[i].replace(/\D+/g, '')) + " by " + localStorage.getItem('artistName' + sort[i].replace(/\D+/g, ''));
+                container.appendChild(div);
+            }
+            const button = document.getElementById('test_button');
+                button.addEventListener('click',()=>{
+                  let sort = [];
+                  for (let i = 0; i < songCount; i++) {
+                  sort[i] = localStorage.getItem('songName' + (i + 1))+ (i + 1)
+                  }
+                  sort.sort();
+                  alert(sort[0].replace(/\D+/g, ''));
+                })
 
-            button.addEventListener('click', () => {
-            });
+            document.addEventListener('click',()=>{
+              if(event.target && event.target.classList.contains('song')){
+                const number = event.target.id.replace('song','');
+                const songLink = localStorage.getItem('linkPath' + number);
+                localStorage.setItem('currentSong', songLink);
+                const currentSong = localStorage.getItem('currentSong').replace(
+                'https://open.spotify.com/album/','').split('?')[0];
+                const playerLink = "player.html?id=" + currentSong
+                alert(playerLink);
+                window.open(playerLink);
+              //https://open.spotify.com/album/2164xFQmRLyfnHxqKoFPj5?si=HyvxX_iVS6eB3BNgdkhPxA
+              // -> 2164xFQmRLyfnHxqKoFPj5
+              }
+
+            })
           });
         </script>
+        <div class="nav-home">
+          <a href="index.html">Home</a>
+        </div>
     </body>
 </html>
