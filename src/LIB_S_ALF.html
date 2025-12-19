@@ -7,7 +7,7 @@
     </head>
     <body>
       <div id="spinning-thingy" onclick="window.open('index.html')">
-        <img src = "VinylBG2_noBG.png" width="90" height="90">
+        <img src = "css/VinylBG2_noBG.png" width="90" height="90">
       </div>
         <h1>Music library</h1>
         <nav>
@@ -17,7 +17,7 @@
         </nav>
         <div id="LIB_container">
         </div>
-        <button id="test_button">Test</button>
+
         <script>
           document.addEventListener('DOMContentLoaded', ()  => {
             let songs = [];
@@ -36,25 +36,18 @@
                 div.textContent = localStorage.getItem('songName' + sort[i].replace(/\D+/g, '')) + " by " + localStorage.getItem('artistName' + sort[i].replace(/\D+/g, ''));
                 container.appendChild(div);
             }
-            const button = document.getElementById('test_button');
-                button.addEventListener('click',()=>{
-                  let sort = [];
-                  for (let i = 0; i < songCount; i++) {
-                  sort[i] = localStorage.getItem('songName' + (i + 1))+ (i + 1)
-                  }
-                  sort.sort();
-                  alert(sort[0].replace(/\D+/g, ''));
-                })
 
             document.addEventListener('click',()=>{
               if(event.target && event.target.classList.contains('song')){
                 const number = event.target.id.replace('song','');
                 const songLink = localStorage.getItem('linkPath' + number);
                 localStorage.setItem('currentSong', songLink);
+
+                alert(localStorage.getItem('currentSong'));
                 const currentSong = localStorage.getItem('currentSong').replace(
-                'https://open.spotify.com/album/','').split('?')[0];
+                  'https://open.spotify.com/album/','').split('?')[0];
                 const playerLink = "player.html?id=" + currentSong
-                alert(playerLink);
+
                 window.open(playerLink);
               //https://open.spotify.com/album/2164xFQmRLyfnHxqKoFPj5?si=HyvxX_iVS6eB3BNgdkhPxA
               // -> 2164xFQmRLyfnHxqKoFPj5

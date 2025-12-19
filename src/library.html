@@ -7,7 +7,7 @@
     </head>
     <body>
       <div id="spinning-thingy" onclick="window.open('index.html')">
-        <img src = "VinylBG2_noBG.png" width="90" height="90">
+        <img src = "css/VinylBG2_noBG.png" width="90" height="90">
       </div>
         <h1>Music library</h1>
         <nav>
@@ -17,21 +17,10 @@
         </nav>
 
         <div id="LIB_container"></div>
-
-
           <div class="nav-home">
-          <a href="index.html">Home</a>
         </div>
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-
-            const sortMethod = 'date'
-            switch (sortMethod) {
-              case 'date':
-
-                break
-            }
-
             let songs = [];
             const container = document.getElementById("LIB_container");
             const songCount = Number(localStorage.getItem('songCount'));
