@@ -17,7 +17,7 @@ Der er tre store sider og en extra:
     Den side viser din valgte album, hvor man kan afspille sin album. Man ser en Spotify vindue (iFrame API), man kan starte og stoppe musikken eller skifte sangen. 
 
 ## 4. About Page
-    Det er et sjovt minispil
+    Det er et sjovt minispil.
     
     
 
@@ -27,3 +27,5 @@ Der er tre store sider og en extra:
 
 ![alt text](https://github.com/SciFiCarrot/music_lib/assets/Flowchart.jpg?raw=true)
 
+https://youtu.be/Yx20QhpgIMc
+https://youtu.be/cdAAOBGwA3o
