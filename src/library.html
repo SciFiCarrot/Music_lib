@@ -43,10 +43,14 @@
                 const number = event.target.id.replace('song','');
                 const songLink = localStorage.getItem('linkPath' + number);
                 localStorage.setItem('currentSong', songLink);
+
                 alert(localStorage.getItem('currentSong'));
-                window.open("player.html");
-              
+                const playerLink = "player.html?id=" + localStorage.getItem('currentSong')
+                window.open(playerLink);
               }
+              //https://open.spotify.com/album/2164xFQmRLyfnHxqKoFPj5?si=HyvxX_iVS6eB3BNgdkhPxA
+              // -> 2164xFQmRLyfnHxqKoFPj5
+
             })
           });
         </script>
