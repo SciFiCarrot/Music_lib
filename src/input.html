@@ -35,7 +35,7 @@
             <button id="reset_button">Reset all songs</button>
         </div>
         <script>
-            songcount = 0;
+            var songcount = 0;
             document.addEventListener('DOMContentLoaded', () => {
                 const LinkInput = document.getElementById('link');
                 const ArtistInput = document.getElementById('artist');
@@ -55,7 +55,7 @@
                         alert('Song submitted!');
                         alert('linkPath' + songcount + ': ' + localStorage.getItem('linkPath' + songcount));
                         alert(songcount + ' songs submitted so far!');
-
+                        localStorage.setItem('songCount', songcount);
                     }
                 });
                 const ResetButton = document.getElementById('reset_button');

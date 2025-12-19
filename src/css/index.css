@@ -15,8 +15,8 @@ p {
 
 .nav {
   display: flex;
+  position: absolute;
   gap: 20px;
   background-color: rgb(0, 0, 0);
-  margin-right: 945px;
   padding: 5px;
 }
