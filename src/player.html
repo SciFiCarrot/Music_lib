@@ -11,16 +11,10 @@
   <link href="input.html">
 </head>
 <body>
-  <nav>
-    <div id="spinning-thingy">
-      <img src = "VinylBG2_noBG.png" width="50" height="50">
+    <div id="spinning-thingy" onclick="window.open('index.html')">
+      <img src = "VinylBG2_noBG.png" width="90" height="90">
     </div>
-  </nav>
-
-
-
-
-    <div id="embed-iframe"></div>
+    <div id="embed-iframe" height="80%"></div>
 
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 
@@ -48,18 +42,13 @@
       const uribase = 'spotify:album:'
       const uri = uribase + id
       const options = {
-          width: '25%',
-          height: '1080',
+          width: '100%',
+          height: '550px',
           uri: uri
         };
       const callback = (EmbedController) => {};
       IFrameAPI.createController(element, options, callback);
     };
-
-
-
-
-
       document.addEventListener('DOMContentLoaded', () => {
         const button = document.getElementById('playpause_track');
         const iframe = document.getElementById('spotify_player');
@@ -72,11 +61,6 @@
           );
           iframe.src = embedLink;
           iframe.style.display ='block';
-        });
-        addEventListener('click', () => {
-          if (event.target.id == 'spinning-thingy'){
-            window.open('index.html');
-          }
         });
       });
   </script>

@@ -1,10 +1,111 @@
 <html>
-    <nav>
-        <div class="nav-home">
-            <a href="index.html">Home</a>
+    <h1 id="level">
+    </h1>
+    <h1 id="score">
+    </h1>
+    <h1 id="timer">
+    </h1>
+    <h1 id="instructions">
+        Click on the spinning record
+    </h1>
+    <body>
+        <style>
+            #level {
+                position: absolute;
+                top: 10px;
+                right: 20%;
+                color:rgb(22, 11, 58)
+            }
+            #spin_container {
+                position: absolute;
+            }
+            #spinner:hover {
+            transition: 0.9s;
+            transform: rotateZ(360deg);
+            }
+            #score {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                color: tomato;
+            }
+        </style>
+        <div id="spin_container">
         </div>
-    </nav>
-    <h1>This is a music player</h1>
-
-
+        <script>
+            const containment = document.getElementById('spin_container');
+            let count = 0;
+            let sec = 1000;
+            let level = 1;
+            addEventListener('DOMContentLoaded', () => {
+                const spinner = document.createElement('div');
+                containment.appendChild(spinner);
+                containment.style.position = 'absolute';
+                containment.style.top = Math.floor(Math.random()*500) + 'px';
+                containment.style.left = Math.floor(Math.random()*90) + '%';
+                containment.style.width = Math.floor(Math.random() * 100 + 50) + 'px';
+                containment.style.height = containment.style.width;
+                containment.style.backgroundImage = 'url(VinylBG2_noBG.png)';
+                containment.style.backgroundSize = 'cover';
+                setInterval(function(){
+                    if (sec<1000){
+                        sec = sec - 1;
+                        document.getElementById('timer').textContent = 'timer = ' + sec;
+                    }
+                    if (sec < 0) {
+                        sec = 1000;
+                        alert('Game over! Your final score is ' + count + '. The page will now reload.');
+                        location.reload();
+                    }
+                }, 1000);
+                addEventListener('click', () => {
+                    const spinner = document.createElement('div');
+                    containment.appendChild(spinner);
+                    containment.style.position = 'absolute';
+                    containment.style.top = Math.floor(Math.random()*500) + 'px';
+                    containment.style.left = Math.floor(Math.random()*90) + '%';
+                    containment.style.width = Math.floor(Math.random() * 100 + 50) + 'px';
+                    containment.style.height = containment.style.width;
+                    containment.style.backgroundImage = 'url(VinylBG2_noBG.png)';
+                    containment.style.backgroundSize = 'cover';
+                });
+                addEventListener('click', () => {
+                    if (event.target.id !== 'spin_container') {
+                        sec = sec - 1
+                        document.getElementById('score').textContent = 'score = ' + count;
+                        document.getElementById('timer').textContent = 'timer = ' + sec;
+                        count = count - 1;
+                    }
+                    else {
+                        count = count + 1;
+                        if (count == 1){
+                            sec = 1
+                        }
+                        if (count == 15){
+                            level = 2
+                            setInterval(function(){
+                                sec = sec - 1;
+                        }, 1500);
+                        }
+                        if (count == 40){
+                            level = 3
+                            setInterval(function(){
+                                sec = sec - 1;
+                        }, 2000);
+                        }
+                        if (count == 100){
+                            level = "MAX"
+                            setInterval(function(){
+                                sec = sec - 1;
+                        }, 2500);
+                        }
+                        sec = sec + 2;
+                        document.getElementById('score').textContent = 'score = ' + count;
+                        document.getElementById('timer').textContent = 'timer = ' + sec;
+                        document.getElementById('level').textContent = 'level:'+' '+level;
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>

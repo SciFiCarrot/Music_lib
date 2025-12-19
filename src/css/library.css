@@ -19,10 +19,10 @@ h1 {
     border: 2px solid black;
     cursor: pointer;
     margin: 25px;
-    margin-top: 28px;
+    margin-top: 15%;
     height: 110px;
     padding: 20px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .nav-sort-re {
   display: flex;
@@ -39,10 +39,12 @@ h1 {
   padding: 5px;
 
 }
-.nav-home{
-  position : absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: rgb(0, 0, 0);
-    padding: 5px;
+#spinning-thingy {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+#spinning-thingy:hover {
+  transition: 0.9s;
+  transform: rotateZ(360deg);
 }

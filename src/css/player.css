@@ -1,6 +1,5 @@
-.body {
-  background-color: lightgreen;
-  transition: background-color .5s;
+body {
+  background-color: rgb(86, 66, 44);
 }
 
 .player {
@@ -19,7 +18,7 @@
 #spinning-thingy {
   position: absolute;
   top: 2%;
-  left: 2%;
+  right: 2%;
 }
 #spinning-thingy:hover {
   transition: 0.9s;

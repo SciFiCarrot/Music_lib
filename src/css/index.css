@@ -20,3 +20,12 @@ p {
   background-color: rgb(0, 0, 0);
   padding: 5px;
 }
+#spinning-thingy {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+#spinning-thingy:hover {
+  transition: 0.9s;
+  transform: rotateZ(360deg);
+}

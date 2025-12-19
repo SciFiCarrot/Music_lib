@@ -50,3 +50,12 @@ body{
     transform: translate(-50%, -50%);
     rotate: 255deg;
 }
+#spinning-thingy {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+#spinning-thingy:hover {
+  transition: 0.9s;
+  transform: rotateZ(360deg);
+}
