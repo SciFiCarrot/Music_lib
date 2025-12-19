@@ -4,14 +4,24 @@
 }
 
 .player {
+  position: absolute;
   height: 95vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
-#spinning-thingy img {
+#embed-iframe {
   position: absolute;
-  animation: spin 4s linear infinite;
-  z-index: -1;
+  border-radius: 12px;
+  top: 2%+55px;
+}
+#spinning-thingy {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
+#spinning-thingy:hover {
+  transition: 0.9s;
+  transform: rotateZ(360deg);
 }
