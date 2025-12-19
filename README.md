@@ -25,7 +25,7 @@ Der er tre store sider og en extra:
 
 
 
-![alt text](https://github.com/SciFiCarrot/music_lib/assets/Flowchart.jpg?raw=true)
+![alt text](https://github.com/SciFiCarrot/Music_lib/blob/main/assets/Flowchart.jpg)?raw=true)
 
 https://youtu.be/Yx20QhpgIMc
 https://youtu.be/cdAAOBGwA3o
