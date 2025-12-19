@@ -49,20 +49,6 @@
       const callback = (EmbedController) => {};
       IFrameAPI.createController(element, options, callback);
     };
-      document.addEventListener('DOMContentLoaded', () => {
-        const button = document.getElementById('playpause_track');
-        const iframe = document.getElementById('spotify_player');
-
-        button.addEventListener('click', () => {
-          const link = localStorage.getItem('LinkPath');
-          const embedLink = link.replace(
-            'https://open.spotify.com/',
-            'https://open.spotify.com/embed/'
-          );
-          iframe.src = embedLink;
-          iframe.style.display ='block';
-        });
-      });
   </script>
 </body>
 </html>
