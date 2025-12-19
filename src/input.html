@@ -35,7 +35,7 @@
             <button id="reset_button">Reset all songs</button>
         </div>
         <script>
-            let songcount = localStorage.getItem('songCount') || 0;
+            songcount = Number(localStorage.getItem('songCount')) || 0;
             document.addEventListener('DOMContentLoaded', () => {
                 const LinkInput = document.getElementById('link');
                 const ArtistInput = document.getElementById('artist');
