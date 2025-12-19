@@ -12,7 +12,7 @@
         <h1>Music library</h1>
         <nav>
           <div class="nav-sort-re">
-            <a href="library_date.html">Sort by recent</a>
+            <a href="library_date.html">Sorted alphabetically</a>
           </div>
         </nav>
         <div id="LIB_container">
@@ -30,27 +30,52 @@
 
 
 
+            function bubbleSort(array) {
+              let tries = 1;
+              let x;
+              let y
+              while (tries > 0) {
+                tries = 0
+                for (let i = 0; i < array.length - 1; i++) {
+                  if(array[i] > array[i + 1]) {
+                    x = array[i];
+                    y = array[i + 1];
+                    array[i] = y;
+                    array[i + 1] = x;
+                    tries += 1;
+                  }
+                }
+                if(tries  == 0){
+                  return array;
+                }
+              }
+            }
 
-            sort.sort();
+
+
+            bubbleSort(sort);
 
 
 
             for (let i = 0; i < albumCount; i++) {
+                const idx = sort[i].replace(/\D+/g, '');
                 albums[i] = localStorage.getItem('linkPath' + sort[i].replace(/\D+/g, ''));
                 const div = document.createElement("div");
                 div.id = "album" + (i + 1); 
                 div.classList.add("album");
+                div.dataset.idx = idx;
                 div.textContent = localStorage.getItem('albumName' + sort[i].replace(/\D+/g, '')) + " by " + localStorage.getItem('artistName' + sort[i].replace(/\D+/g, ''));
                 container.appendChild(div);
             }
 
-            document.addEventListener('click',()=>{
+            document.addEventListener('click',(event)=>{
               if(event.target && event.target.classList.contains('album')){
-                const number = event.target.id.replace('album','');
-                const albumLink = localStorage.getItem('linkPath' + number);
+                const idx = event.target.dataset.idx;
+                const albumLink = localStorage.getItem('linkPath' + idx);
+                if (!albumLink) return;
                 localStorage.setItem('currentalbum', albumLink);
 
-                alert(localStorage.getItem('currentalbum'));
+                //alert(localStorage.getItem('currentalbum'));
                 const currentalbum = localStorage.getItem('currentalbum').replace(
                   'https://open.spotify.com/album/','').split('?')[0];
                 const playerLink = "player.html?id=" + currentalbum
